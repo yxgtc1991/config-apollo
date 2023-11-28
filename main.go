@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	client, err := agollo.New("localhost:8080", "SampleApp", agollo.PreloadNamespaces("application"))
+	client, err := agollo.New("127.0.0.1:8080", "SampleApp", agollo.PreloadNamespaces("application"))
 	if err != nil {
 		panic(err)
 	}
@@ -20,9 +20,9 @@ func main() {
 		case resp := <-watchCh:
 			fmt.Println(
 				"Namespace: ", resp.Namespace,
-				"Old Value:", resp.OldValue,
-				"New Value: ", resp.NewValue,
-				"Error: ", resp.Error,
+				"\t Old Value:", resp.OldValue,
+				"\t New Value: ", resp.NewValue,
+				"\t Error: ", resp.Error,
 			)
 		}
 	}
